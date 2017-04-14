@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Vidly.Models.Request>
+﻿@model IEnumerable<Vidly.Models.UserAccount>
 
 
 @{
@@ -10,42 +10,6 @@
     <h4>Hello @Session["Username"].ToString()</h4>
 }
 
-@if (Session["Id"] != null)
-{
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-        </tr>
-    }
-</table>
-}
-else
-{
-    <h4>No Reservations have been made</h4>
-}
 <table>
     <tr>
         <td><p><a href="http://localhost:50187/Account/Reservation" class="btn btn-primary btn-lg">Make Reservation &raquo;</a></p></td>

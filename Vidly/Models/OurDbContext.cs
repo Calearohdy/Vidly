@@ -12,12 +12,12 @@ namespace Vidly.Models
     {
         public DbSet<UserAccount> UserAccount { get; set; }
 
-        public DbSet<Request> Request { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //}
     }
 
 }

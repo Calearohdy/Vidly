@@ -25,7 +25,7 @@ namespace Vidly.Controllers
         {
             using (OurDbContext db = new OurDbContext())
             {
-                return View(db.Request.ToList());
+                return View(db.Requests.ToList());
             }
         }
 
@@ -121,13 +121,24 @@ namespace Vidly.Controllers
             {
                 using (OurDbContext db = new OurDbContext())
                 {
-                    db.Request.Add(request);
+                    db.Requests.Add(request);
                     db.SaveChanges();
                 }
                 ModelState.Clear();
                 ViewBag.Message = "Reservation for " + request.FirstName + " for a party of " + request.Size + " on" + request.Date;
             }
-            return RedirectToAction("LoggedIn");
+            return View();
+        }
+        public ActionResult Reserved()
+        {
+            if (Session["Id"] != null)
+            {
+                return RedirectToAction("ReservationList");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // GET: Account/Reservation
